@@ -153,10 +153,10 @@ def scrape_products(base_url):
 
         # Go to the next page
         page += 1
-        time.sleep(2)  # Delay between requests to avoid overloading the server
+        time.sleep(2)  # Added a generic delay to prevent a 429 response
 
     # Save all products to a JSON file
-    print("Scraping completed. Data saved to 'products.json'.")
+    print("Scraping completed. Data saved to 'output.json'.")
     save_products_to_json(all_products)
 
 
@@ -194,7 +194,7 @@ def remove_duplicates(products):
 
 
 # Save the final list to a JSON file
-def save_products_to_json(products, filename='products.json'):
+def save_products_to_json(products, filename='output.json'):
     """Save products to a JSON file, after removing duplicates."""
     # Ensure the input is a list of dictionaries
     if not isinstance(products, list):
